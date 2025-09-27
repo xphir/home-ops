@@ -24,7 +24,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/108bfe895edd36d991eb4302502a8c61ebc3ba0c3136cc2a458770f7242c9af4
+    talosImageURL: factory.talos.dev/installer/7bde2d947bcb4133a688b0ce4a11f6b76af0f631fc4cd267236e67a240f7b6e1
     controlPlane: true
     networkInterfaces:
       - interface: "enp8s0"
@@ -44,7 +44,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/108bfe895edd36d991eb4302502a8c61ebc3ba0c3136cc2a458770f7242c9af4
+    talosImageURL: factory.talos.dev/installer/7bde2d947bcb4133a688b0ce4a11f6b76af0f631fc4cd267236e67a240f7b6e1
     controlPlane: true
     networkInterfaces:
       - interface: "enp8s0"
@@ -64,7 +64,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/108bfe895edd36d991eb4302502a8c61ebc3ba0c3136cc2a458770f7242c9af4
+    talosImageURL: factory.talos.dev/installer/7bde2d947bcb4133a688b0ce4a11f6b76af0f631fc4cd267236e67a240f7b6e1
     controlPlane: true
     networkInterfaces:
       - interface: "enp8s0"
@@ -90,6 +90,36 @@ patches:
 
 # Controller patches
 controlPlane:
+  # schematic:
+  #   customization:
+  #     extraKernelArgs:
+  #       - -init_on_alloc # Less security, faster puter
+  #       - init_on_alloc=0 # Less security, faster puter
+  #       - -init_on_free # Less security, faster puter
+  #       - init_on_free=0 # Less security, faster puter
+  #       - -selinux # Less security, faster puter
+  #       - apparmor=0 # Less security, faster puter
+  #       - intel_iommu=on # PCI Passthrough
+  #       - iommu=pt # PCI Passthrough
+  #       - mitigations=off # Less security, faster puter
+  #       - module_blacklist=e1000e # Disable onboard NIC
+  #       - security=none # Less security, faster puter
+  #       - talos.auditd.disabled=1 # Less security, faster puter
+  #       - ipv6.disable=1 # Disable ipv6
+  #     systemExtensions:
+  #       officialExtensions:
+  #         - siderolabs/i915 # Needed for Intel GPUs
+  #         - siderolabs/intel-ucode # Microcode updates for Intel CPUs
+  #         - siderolabs/nvme-cli # NVMe management tools
+  #         - siderolabs/thunderbolt # The 10GbE Networking is a thunderbolt device
+  #         - siderolabs/mei # The machine has Intel Management Engine
+  #         # See https://longhorn.io/docs/1.10.0/advanced-resources/os-distro-specific/talos-linux-support/#system-extensions
+  #         - siderolabs/iscsi-tools
+  #         - siderolabs/util-linux-tools
+  kernelModules:
+    # https://longhorn.io/docs/1.10.0/advanced-resources/os-distro-specific/talos-linux-support/#v2-data-engine
+    - name: nvme_tcp
+    - name: vfio_pci
   patches:
     - "@./patches/controller/admission-controller-patch.yaml"
     - "@./patches/controller/cluster.yaml"

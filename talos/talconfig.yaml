@@ -24,7 +24,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/7bde2d947bcb4133a688b0ce4a11f6b76af0f631fc4cd267236e67a240f7b6e1
+    talosImageURL: factory.talos.dev/installer/cd95cb04b656a82abc6178feefb608666fe3ca4f2267daeddfd03a1572f5b5bf
     controlPlane: true
     networkInterfaces:
       - interface: "enp8s0"
@@ -44,7 +44,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/7bde2d947bcb4133a688b0ce4a11f6b76af0f631fc4cd267236e67a240f7b6e1
+    talosImageURL: factory.talos.dev/installer/cd95cb04b656a82abc6178feefb608666fe3ca4f2267daeddfd03a1572f5b5bf
     controlPlane: true
     networkInterfaces:
       - interface: "enp8s0"
@@ -64,7 +64,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/7bde2d947bcb4133a688b0ce4a11f6b76af0f631fc4cd267236e67a240f7b6e1
+    talosImageURL: factory.talos.dev/installer/cd95cb04b656a82abc6178feefb608666fe3ca4f2267daeddfd03a1572f5b5bf
     controlPlane: true
     networkInterfaces:
       - interface: "enp8s0"
@@ -90,6 +90,7 @@ patches:
 
 # Controller patches
 controlPlane:
+  # cd95cb04b656a82abc6178feefb608666fe3ca4f2267daeddfd03a1572f5b5bf
   # schematic:
   #   customization:
   #     extraKernelArgs:
@@ -105,7 +106,6 @@ controlPlane:
   #       - module_blacklist=e1000e # Disable onboard NIC
   #       - security=none # Less security, faster puter
   #       - talos.auditd.disabled=1 # Less security, faster puter
-  #       - ipv6.disable=1 # Disable ipv6
   #     systemExtensions:
   #       officialExtensions:
   #         - siderolabs/i915 # Needed for Intel GPUs

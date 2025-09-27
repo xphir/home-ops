@@ -87,9 +87,18 @@ patches:
   - "@./patches/global/machine-network.yaml"
   - "@./patches/global/machine-sysctls.yaml"
   - "@./patches/global/machine-time.yaml"
+  #- "@./patches/global/longhorn-disks.yaml"
 
 # Controller patches
 controlPlane:
+  kernelModules:
+    # https://longhorn.io/docs/1.10.0/advanced-resources/os-distro-specific/talos-linux-support/#v2-data-engine
+    - name: nvme_tcp
+    - name: vfio_pci
+  patches:
+    - "@./patches/controller/admission-controller-patch.yaml"
+    - "@./patches/controller/cluster.yaml"
+
   # cd95cb04b656a82abc6178feefb608666fe3ca4f2267daeddfd03a1572f5b5bf
   # schematic:
   #   customization:
@@ -116,10 +125,3 @@ controlPlane:
   #         # See https://longhorn.io/docs/1.10.0/advanced-resources/os-distro-specific/talos-linux-support/#system-extensions
   #         - siderolabs/iscsi-tools
   #         - siderolabs/util-linux-tools
-  kernelModules:
-    # https://longhorn.io/docs/1.10.0/advanced-resources/os-distro-specific/talos-linux-support/#v2-data-engine
-    - name: nvme_tcp
-    - name: vfio_pci
-  patches:
-    - "@./patches/controller/admission-controller-patch.yaml"
-    - "@./patches/controller/cluster.yaml"

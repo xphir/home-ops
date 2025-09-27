@@ -20,14 +20,14 @@ spec:
     defaultSettings:
       # For raw block devices, don't set defaultDataPath
       # Let Longhorn discover and manage raw devices directly
-      defaultReplicaCount: 2
+      defaultReplicaCount: "2"
       defaultDataLocality: best-effort
       # Enable automatic disk discovery for raw block devices
       createDefaultDiskLabeledNodes: false
       # Storage over provisioning percentage
-      storageOverProvisioningPercentage: 100
+      storageOverProvisioningPercentage: "100"
       # Storage minimal available percentage
-      storageMinimalAvailablePercentage: 25
+      storageMinimalAvailablePercentage: "25"
       # Automatically cleanup snapshots
       recurringSuccessfulJobsHistoryLimit: 1
       recurringFailedJobsHistoryLimit: 1
@@ -37,7 +37,7 @@ spec:
     persistence:
       # Default storage class settings
       defaultClass: true
-      defaultClassReplicaCount: 2
+      defaultClassReplicaCount: "2"
       reclaimPolicy: Delete
 
     # UI configuration

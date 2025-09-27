@@ -27,8 +27,7 @@ nodes:
     talosImageURL: factory.talos.dev/installer/c437ab9608c4e091c4e50b8eb11cc533d556d25904258d2673f84e7b39474dca
     controlPlane: true
     networkInterfaces:
-      - deviceSelector:
-          hardwareAddr: "24:5e:be:52:5d:3c"
+      - interface: "enp8s0"
         dhcp: false
         addresses:
           - "10.0.0.6/23"
@@ -48,8 +47,7 @@ nodes:
     talosImageURL: factory.talos.dev/installer/c437ab9608c4e091c4e50b8eb11cc533d556d25904258d2673f84e7b39474dca
     controlPlane: true
     networkInterfaces:
-      - deviceSelector:
-          hardwareAddr: "24:5e:be:53:c1:34"
+      - interface: "enp8s0"
         dhcp: false
         addresses:
           - "10.0.0.7/23"
@@ -69,8 +67,7 @@ nodes:
     talosImageURL: factory.talos.dev/installer/c437ab9608c4e091c4e50b8eb11cc533d556d25904258d2673f84e7b39474dca
     controlPlane: true
     networkInterfaces:
-      - deviceSelector:
-          hardwareAddr: "24:5e:be:53:22:03"
+      - interface: "enp8s0"
         dhcp: false
         addresses:
           - "10.0.0.8/23"
@@ -96,4 +93,3 @@ controlPlane:
   patches:
     - "@./patches/controller/admission-controller-patch.yaml"
     - "@./patches/controller/cluster.yaml"
-

@@ -16,3 +16,30 @@ spec:
         namespace: longhorn-system
       version: v1.10.0
   interval: 1m0s
+  values:
+    defaultSettings:
+      # For raw block devices, don't set defaultDataPath
+      # Let Longhorn discover and manage raw devices directly
+      defaultReplicaCount: 2
+      defaultDataLocality: best-effort
+      # Enable automatic disk discovery for raw block devices
+      createDefaultDiskLabeledNodes: false
+      # Storage over provisioning percentage
+      storageOverProvisioningPercentage: 100
+      # Storage minimal available percentage
+      storageMinimalAvailablePercentage: 25
+      # Automatically cleanup snapshots
+      recurringSuccessfulJobsHistoryLimit: 1
+      recurringFailedJobsHistoryLimit: 1
+      # Disable automatic filesystem trim (let Longhorn handle it)
+      disableSchedulingOnCordonedNode: true
+
+    persistence:
+      # Default storage class settings
+      defaultClass: true
+      defaultClassReplicaCount: 2
+      reclaimPolicy: Delete
+
+    # UI configuration
+    longhornUI:
+      replicas: 1

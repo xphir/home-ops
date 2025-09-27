@@ -24,7 +24,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/c437ab9608c4e091c4e50b8eb11cc533d556d25904258d2673f84e7b39474dca
+    talosImageURL: factory.talos.dev/installer/108bfe895edd36d991eb4302502a8c61ebc3ba0c3136cc2a458770f7242c9af4
     controlPlane: true
     networkInterfaces:
       - interface: "enp8s0"
@@ -44,7 +44,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/c437ab9608c4e091c4e50b8eb11cc533d556d25904258d2673f84e7b39474dca
+    talosImageURL: factory.talos.dev/installer/108bfe895edd36d991eb4302502a8c61ebc3ba0c3136cc2a458770f7242c9af4
     controlPlane: true
     networkInterfaces:
       - interface: "enp8s0"
@@ -64,7 +64,7 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/c437ab9608c4e091c4e50b8eb11cc533d556d25904258d2673f84e7b39474dca
+    talosImageURL: factory.talos.dev/installer/108bfe895edd36d991eb4302502a8c61ebc3ba0c3136cc2a458770f7242c9af4
     controlPlane: true
     networkInterfaces:
       - interface: "enp8s0"

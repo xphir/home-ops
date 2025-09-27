@@ -38,6 +38,8 @@ nodes:
         mtu: 1500
         vip:
           ip: "10.0.0.31"
+      - interface: "eno1"
+        ignore: true
   - hostname: "crux"
     ipAddress: "10.0.0.7"
     installDisk: "/dev/sda"
@@ -57,6 +59,8 @@ nodes:
         mtu: 1500
         vip:
           ip: "10.0.0.31"
+      - interface: "eno1"
+        ignore: true
   - hostname: "vela"
     ipAddress: "10.0.0.8"
     installDisk: "/dev/sda"
@@ -76,6 +80,8 @@ nodes:
         mtu: 1500
         vip:
           ip: "10.0.0.31"
+      - interface: "eno1"
+        ignore: true
 
 # Global patches
 patches:
